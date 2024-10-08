@@ -108,7 +108,8 @@ const Dashboard = () => {
 
   return (
     <div className="py-10">
-      <div className="w-[90%] sm:w-[70%] lg:w-[50%] mx-auto pb-5 rounded-lg bg-[#FCDE70]">
+       <h1 className="text-center text-4xl font-bold mb-20">Your <span className="text-[#e69f42]">Profile </span>Details </h1>
+      <div className="w-[90%] sm:w-[70%] lg:w-[50%] mx-auto pb-5 rounded-lg bg-blue-400 border-dotted border-orange-500 border-4">
         <div className="flex justify-center items-center py-4">
           <img
             alt="Profile Pic"
@@ -118,17 +119,17 @@ const Dashboard = () => {
         </div>
 
         <div className="mb-5 text-center">
-          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
-            {data?.userData?.name}
+          <h1 className="text-xl sm:text-2xl font-bold text-white">
+          Name:  {data?.userData?.name}
           </h1>
-          <h1 className="text-lg sm:text-xl font-bold text-gray-900">
-            {data?.userData?.email}
+          <h1 className="text-lg sm:text-xl font-bold text-white">
+          Email:  {data?.userData?.email}
           </h1>
         </div>
-
+      <hr />
         {user?.role === "user" && (
-          <div className="flex gap-3 px-5 mt-3">
-            <div className="border-gray-600 border-2 rounded-lg text-gray-900 w-[50%]">
+          <div className="flex gap-3 px-5 mt-3 py-3">
+            <div className=" rounded-lg text-white w-[50%]">
               <div className="text-lg sm:text-xl font-bold text-center">
                 Follower
               </div>
@@ -137,7 +138,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="border-gray-600 border-2 rounded-lg text-gray-900 w-[50%]">
+            <div className="rounded-lg text-white w-[50%]">
               <div className="text-lg sm:text-xl font-bold text-center">
                 Following
               </div>
@@ -147,59 +148,73 @@ const Dashboard = () => {
             </div>
           </div>
         )}
+        <hr />
 
-        <div className="border-gray-600 border-2 rounded-lg text-gray-900 mt-5 mx-5 p-4 text-lg sm:text-xl font-bold">
+        <div className=" rounded-lg text-white mt-5 mx-5 p-4 text-lg sm:text-xl font-bold">
           <h1>Your Bio: {data?.userData?.bio}</h1>
         </div>
 
         <div className="w-full flex flex-col sm:flex-row gap-5 justify-center items-center mt-5">
-          <Button className="bg-button font-bold text-lg" onPress={onOpen}>
-            Update Profile Info
+          <Button className="bg-button text-lg font-bold rounded-none hover:bg-white hover:text-orange-400 hover:border-2 hover:border-orange-400" onPress={onOpen}>
+            Edit Your Profile
           </Button>
 
           {data?.userData?.premiumMembership === false &&
             user?.role === "user" && (
               <Button
-                className="bg-secondary font-bold text-lg"
+                className="bg-white text-blue-500  font-bold text-lg border-none hover:text-xl hover:p-5"
                 isDisabled={isPending}
                 isLoading={isPending}
                 onClick={handleBecomePremiumMember}
               >
-                Buy a premium membership
+                Get The Premium 👑
               </Button>
             )}
         </div>
 
         <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
           <ModalContent>
-            <div className="p-4 text-lg">Update Profile Info</div>
+            <div className="p-4 text-lg text-white">Edit Your Profile</div>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="px-4 pb-4 flex flex-col gap-3">
-                <Input
-                  defaultValue={data?.userData?.name}
-                  label="Name"
-                  type="text"
-                  {...register("name")}
-                />
+            <div className="px-4 pb-4 flex flex-col gap-3">
+  <div className="flex flex-col">
+    <h3 className="text-white">Name</h3>
+    <input
+      defaultValue={data?.userData?.name}
+      type="text"
+      {...register("name")}
+      className="input input-bordered bg-white text-orange-400" // White background and orange text
+      placeholder="Enter your name"
+    />
+  </div>
 
-                <Input
-                  defaultValue={data?.userData?.profilePicture}
-                  label="Profile Picture URL"
-                  type="text"
-                  {...register("profilePicture")}
-                />
+  <div className="flex flex-col">
+    <h3 className="text-white">Profile Picture URL</h3>
+    <input
+      defaultValue={data?.userData?.profilePicture}
+      type="text"
+      {...register("profilePicture")}
+      className="input input-bordered bg-white text-orange-400" // White background and orange text
+      placeholder="Enter profile picture URL"
+    />
+  </div>
 
-                <Input
-                  defaultValue={data?.userData?.bio}
-                  label="Bio"
-                  type="text"
-                  {...register("bio")}
-                />
-              </div>
+  <div className="flex flex-col">
+    <h3 className="text-white">Bio</h3>
+    <input
+      defaultValue={data?.userData?.bio}
+      type="text"
+      {...register("bio")}
+      className="input input-bordered bg-white text-orange-400" // White background and orange text
+      placeholder="Tell us about yourself"
+    />
+  </div>
+</div>
+
 
               <div className="flex justify-center pb-4">
                 <Button className="bg-button" type="submit">
-                  Save Changes
+                  Save Now
                 </Button>
               </div>
             </form>
@@ -211,25 +226,34 @@ const Dashboard = () => {
         <div className="">
           {data?.userPostedRecipeData?.length !== 0 && (
             <div className="text-gray-800 text-center text-3xl sm:text-4xl font-bold mt-10">
-              <h1>
-                Your <span className="text-secondary">Recipes</span>
-              </h1>
+               <h1 className="text-center text-4xl font-bold mt-10">Your Create All <span className="text-[#e69f42]">Recipes</span></h1>
 
-              <div className="w-[90%] sm:w-[80%] mt-7 mx-auto mb-7 grid grid-cols-1 md:grid-cols-2 gap-10">
-                <Select
-                  label="Sort By"
-                  onChange={(event) => setSortCriterion(event.target.value)}
-                >
-                  <SelectItem key={"upvote"}>Upvote</SelectItem>
-                  <SelectItem key={"rating"}>Rating</SelectItem>
-                </Select>
+               <div className="w-[90%] sm:w-[80%] mt-7 mx-auto mb-7 grid grid-cols-1 md:grid-cols-2 gap-10">
+  <div className="flex flex-col">
+    <h3 className="text-black">Sort By</h3>
+    <select
+      onChange={(event) => setSortCriterion(event.target.value)}
+      className="bg-white border border-orange-400 text-black p-2"
+    >
+      <option value="" disabled selected>
+        Select an option
+      </option>
+      <option value="upvote">Upvote</option>
+      <option value="rating">Rating</option>
+    </select>
+  </div>
 
-                <Input
-                  label="Search Recipe"
-                  type="text"
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+  <div className="flex flex-col">
+    <h3 className="text-black">Search Recipe</h3>
+    <input
+      type="text"
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className="bg-white border border-orange-400 text-black p-2"
+      placeholder="Search for a recipe"
+    />
+  </div>
+</div>
+
             </div>
           )}
 
@@ -255,7 +279,7 @@ const Dashboard = () => {
               <div className="flex justify-center mt-10">
                 <button
                   className={`mx-2 px-3 py-1 font-bold text-lg rounded ${
-                    currentPage === 1 ? "bg-gray-400" : "bg-button text-white"
+                    currentPage === 1 ? "bg-blue-200" : "bg-button text-white"
                   }`}
                   disabled={currentPage === 1}
                   onClick={() => currentPage > 1 && paginate(currentPage - 1)}
@@ -273,7 +297,7 @@ const Dashboard = () => {
                       className={`mx-2 px-3 py-1 font-bold text-lg rounded ${
                         currentPage === index + 1
                           ? "bg-button text-white"
-                          : "bg-gray-400"
+                          : "bg-blue-300"
                       }`}
                       onClick={() => paginate(index + 1)}
                     >
@@ -286,7 +310,7 @@ const Dashboard = () => {
                   className={`mx-2 px-3 py-1 font-bold text-lg rounded ${
                     currentPage ===
                     Math.ceil(filteredRecipes?.length / cardsPerPage)
-                      ? "bg-gray-400"
+                      ? "bg-blue-300"
                       : "bg-button text-white"
                   }`}
                   disabled={

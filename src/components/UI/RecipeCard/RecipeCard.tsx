@@ -98,12 +98,12 @@ const RecipeCard = ({
           <div className="text-center mt-4">
             {button === "delete" && (
               <Button
-                className="bg-red-500 text-lg w-full"
+                className="bg-red-500 text-lg w-full rounded-none"
                 isDisabled={recipeToDelete === recipe?._id}
                 isLoading={recipeToDelete === recipe?._id}
                 onClick={() => handleDeleteRecipe(recipe?._id)}
               >
-                Delete Recipe
+                Delete The Recipe
               </Button>
             )}
 
