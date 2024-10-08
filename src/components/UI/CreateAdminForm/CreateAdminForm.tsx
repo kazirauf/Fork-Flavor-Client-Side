@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { toast } from "sonner";
 
 import { useCreateAdmin } from "@/src/hooks/user.hooks";
+import { Image } from "@nextui-org/react";
+
 
 const CreateAdminForm = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -23,7 +25,7 @@ const CreateAdminForm = () => {
 
   const onSubmit = async (data: any) => {
     if (!data.profilePicture) {
-      data.profilePicture = "https://i.ibb.co/HN9NtYY/user.png";
+      data.profilePicture = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF5-3YjBcXTqKUlOAeUUtuOLKgQSma2wGG1g&s";
     }
 
     createAdmin(data);
@@ -32,7 +34,8 @@ const CreateAdminForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-6 mb-5">
+    <div className="flex items-center justify-center p-6 mb-5 gap-10">
+      <Image className="lg:max-w-xl max-w-sm" src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  alt="admin image"/>
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
         <h1 className="text-3xl font-bold text-gray-900 text-center mb-6">
           Create Admin
@@ -49,6 +52,7 @@ const CreateAdminForm = () => {
               className="w-full bg-gray-300 px-4 py-2 border rounded-lg text-gray-900 outline-none"
               type="text"
               {...register("name")}
+              placeholder="Admin Name"
             />
           </div>
 
@@ -62,6 +66,7 @@ const CreateAdminForm = () => {
               className="w-full bg-gray-300 px-4 py-2 border rounded-lg text-gray-900 outline-none"
               type="email"
               {...register("email")}
+                placeholder="Admin Email Address"
             />
           </div>
 
@@ -75,24 +80,26 @@ const CreateAdminForm = () => {
               className="w-full bg-gray-300 px-4 py-2 border rounded-lg text-gray-900 outline-none"
               type="password"
               {...register("password")}
+              placeholder="Admin Password"
             />
           </div>
 
           {/* Profile Picture */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">
-              Profile Picture URL (optional)
+             Admin Image URL
             </label>
             <input
               className="w-full bg-gray-300 px-4 py-2 border rounded-lg text-gray-900 outline-none"
               type="text"
               {...register("profilePicture")}
+              placeholder="Admin Image URL"
             />
           </div>
 
           {/* Submit Button */}
           <Button
-            className="w-full bg-button text-white font-bold text-xl py-2 px-4 rounded-lg transition duration-300"
+            className="w-full bg-[#e69f42] font-bold text-lg rounded-none hover:bg-white hover:text-[#e69f42] hover:text-[#e69f42] hover:border-[#e69f42] hover:border-2 transition duration-300"
             isDisabled={isPending}
             isLoading={isPending}
             type="submit"

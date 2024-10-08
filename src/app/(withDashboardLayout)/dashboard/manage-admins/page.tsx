@@ -93,12 +93,11 @@ const ManageAdmins = () => {
   return (
     <div>
       <div className="container mx-auto p-8 pb-20">
-        <h1 className="text-3xl font-bold mb-6 text-gray-900 text-center">
-          Manage <span className="text-secondary">Admins</span>
-        </h1>
+      
+      <h1 className="text-center text-4xl font-bold my-10">Add A New <span className="text-[#e69f42]">Admin</span></h1>
 
         <CreateAdminForm />
-
+        <h1 className="text-center text-4xl font-bold my-10">Manage All <span className="text-[#e69f42]">Admins</span></h1>
         {/* Responsive Table Wrapper */}
         <div className="hidden md:block">
           {" "}
@@ -133,14 +132,14 @@ const ManageAdmins = () => {
                   ) : (
                     <td className="p-4">
                       <Button
-                        className="text-lg font-bold bg-green-500 mr-5"
+                        className="bg-[#e69f42] ml-4 font-bold text-lg rounded-none hover:bg-white hover:text-[#e69f42] hover:text-[#e69f42] hover:border-[#e69f42] hover:border-2"
                         onClick={() => handleOpenUpdateModal(admin)}
                       >
                         Update
                       </Button>
 
                       <Button
-                        className="text-lg font-bold bg-red-500"
+                        className="bg-red-500 ml-4 font-bold text-lg rounded-none hover:bg-white hover:border-2 hover:border-red-500 hover:text-red-500"
                         isDisabled={userToDelete === admin?._id}
                         isLoading={userToDelete === admin?._id}
                         onClick={() => handleDeleteAdmin(admin?._id)}
