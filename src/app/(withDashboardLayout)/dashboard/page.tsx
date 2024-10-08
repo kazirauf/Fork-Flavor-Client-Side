@@ -4,9 +4,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Modal, ModalContent, useDisclosure } from "@nextui-org/modal";
-import { Input } from "@nextui-org/input";
 import { useForm } from "react-hook-form";
-import { Select, SelectItem } from "@nextui-org/select";
 
 import { useUser } from "@/src/context/user.provider";
 import {
@@ -232,10 +230,10 @@ const Dashboard = () => {
   <div className="flex flex-col">
     <h3 className="text-black">Sort By</h3>
     <select
-      onChange={(event) => setSortCriterion(event.target.value)}
       className="bg-white border border-orange-400 text-black p-2"
+      onChange={(event) => setSortCriterion(event.target.value)}
     >
-      <option value="" disabled selected>
+      <option disabled selected value="">
         Select an option
       </option>
       <option value="upvote">Upvote</option>
@@ -246,10 +244,10 @@ const Dashboard = () => {
   <div className="flex flex-col">
     <h3 className="text-black">Search Recipe</h3>
     <input
-      type="text"
-      onChange={(e) => setSearchTerm(e.target.value)}
       className="bg-white border border-orange-400 text-black p-2"
       placeholder="Search for a recipe"
+      type="text"
+      onChange={(e) => setSearchTerm(e.target.value)}
     />
   </div>
 </div>

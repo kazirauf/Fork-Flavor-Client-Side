@@ -9,10 +9,10 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { Image } from "@nextui-org/react";
 
 import { useUserLogin } from "@/src/hooks/auth.hooks";
 import { useUser } from "@/src/context/user.provider";
-import { Image } from "@nextui-org/react";
 
 const MainContentsOfLogin = () => {
   const router = useRouter();
@@ -53,8 +53,8 @@ const MainContentsOfLogin = () => {
               transition={{ duration: 0.5 }}
             >
               <Image
-              className=""
-                alt=""
+              alt=""
+                className=""
                 src="https://images.unsplash.com/photo-1528712306091-ed0763094c98?q=80&w=1940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </motion.div>
@@ -78,8 +78,8 @@ const MainContentsOfLogin = () => {
                   <input
                     {...register("email", { required: "Email is required" })} // Register with validation
                     className="bg-gray-200 text-black font-bold focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                    type="email"
                     placeholder="Email Address"
+                    type="email"
                   />
                 </div>
 
@@ -94,8 +94,8 @@ const MainContentsOfLogin = () => {
                       required: "Password is required",
                     })} // Register with validation
                     className="bg-gray-200 text-black font-bold focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                    type="password"
                     placeholder="Password"
+                    type="password"
                   />
                 </div>
 

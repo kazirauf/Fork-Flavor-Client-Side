@@ -9,9 +9,9 @@ const HomePage = () => {
   return (
     <div className="bg-[#F5EDED]">
       <Hero />
-     <OurWebsiteFacilities />
-     <HowItWorks />
-     <FAQ></FAQ>
+      <OurWebsiteFacilities />
+      <HowItWorks />
+      <FAQ />
     </div>
   );
 };

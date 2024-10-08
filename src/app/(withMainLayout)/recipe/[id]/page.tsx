@@ -4,15 +4,11 @@
 import { useParams } from "next/navigation";
 import React, { FormEvent, useEffect, useState } from "react";
 import { Button } from "@nextui-org/button";
-import { BiUpvote, BiDownvote } from "react-icons/bi";
-import { FaEdit } from "react-icons/fa";
 import {
   Avatar,
   Image,
   Modal,
   ModalContent,
-  Select,
-  SelectItem,
   Textarea,
   useDisclosure,
 } from "@nextui-org/react";
@@ -201,9 +197,9 @@ const RecipeDetails = () => {
               ) : (
                 <Button
                   className={`text-sm md:text-lg bg-blue-500 font-bold ${user?.role === "admin" && "hidden"}`}
+                  endContent={<FaCirclePlus />}
                   isDisabled={isFollowUserPending || isUnfollowUserPending}
                   isLoading={isFollowUserPending || isUnfollowUserPending}
-                  endContent={<FaCirclePlus />}
                   onClick={
                     postOwner?.followers?.includes(user?._id)
                       ? handleUnfollow
@@ -259,7 +255,7 @@ const RecipeDetails = () => {
               variant="bordered"
               onClick={() => handleUpvote(recipe?._id)}
             >
-             <Image className="w-12" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJjVFFA5i4QJKHyITzyQUMaXur-yihIzjZyg&s" alt="" />({recipe?.upvote?.length})
+             <Image alt="" className="w-12" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJjVFFA5i4QJKHyITzyQUMaXur-yihIzjZyg&s" />({recipe?.upvote?.length})
             </Button>
 
             <Button
@@ -271,7 +267,7 @@ const RecipeDetails = () => {
               variant="bordered"
               onClick={() => handleDownvote(recipe?._id)}
             >
-             <Image className="w-12" src="https://cdn-icons-png.flaticon.com/512/3670/3670156.png" alt="" /> ({recipe?.downvote?.length})
+             <Image alt="" className="w-12" src="https://cdn-icons-png.flaticon.com/512/3670/3670156.png" /> ({recipe?.downvote?.length})
             </Button>
 
           </div>
@@ -281,7 +277,7 @@ const RecipeDetails = () => {
             >
               <Button className="bg-white border-2 py-5 ml-3 border-[#e69f42] text-lg font-bold" onPress={onOpen}>
               <h3 className="font-bold text-black">Rating Now</h3>
-               <Image className="w-14 p-3" src="https://cdn-icons-png.flaticon.com/512/1168/1168845.png" alt="rate icon" />
+               <Image alt="rate icon" className="w-14 p-3" src="https://cdn-icons-png.flaticon.com/512/1168/1168845.png" />
               </Button>
 
               <Modal
@@ -310,10 +306,10 @@ const RecipeDetails = () => {
 
                     {/* Submit button */}
                     <Button
+                      className="bg-white text-[#e69f42] border-[#e69f42] hover:text-white hover:bg-[#e69f42] rounded-none"
                       isDisabled={isRateRecipePending}
                       isLoading={isRateRecipePending}
                       type="submit"
-                      className="bg-white text-[#e69f42] border-[#e69f42] hover:text-white hover:bg-[#e69f42] rounded-none"
                     >
                       Submit
                     </Button>
@@ -384,8 +380,8 @@ const RecipeDetails = () => {
     <textarea
       {...field}
       required
-      placeholder="Comment now!!! for this recipe" // Placeholder text
       className="textarea textarea-bordered w-full bg-white text-black border-2 border-orange-400" // White background and black text
+      placeholder="Comment now!!! for this recipe" // Placeholder text
     />
   )}
 />

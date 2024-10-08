@@ -93,7 +93,9 @@ const ManageRecipies = () => {
 
   return (
     <div className="container mx-auto p-8 pb-20 h-[700px]">
-       <h1 className="text-center text-4xl font-bold my-10">Manage All <span className="text-[#e69f42]">Repice</span></h1>
+      <h1 className="text-center text-4xl font-bold my-10">
+        Manage All <span className="text-[#e69f42]">Repice</span>
+      </h1>
 
       {/* Responsive Table Wrapper */}
       <div className="hidden md:block">

@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 "use client";
 
-import { Input } from "@nextui-org/input";
 
 import { useState, useEffect } from "react";
 
@@ -93,9 +92,9 @@ const RecipePage = () => {
 {/* Search input */}
 <label className="input input-bordered flex items-center gap-2 bg-[#e69f42] text-black ">
   <input 
+    className="grow bg-[#e69f42] text-white" // Custom background and text color 
+    placeholder="Search"
     type="text" 
-    className="grow bg-[#e69f42] text-white" // Custom background and text color
-    placeholder="Search" 
     value={searchQuery} // Controlled input value
     onChange={(e) => {
       setSearchQuery(e.target.value); // Handle input change

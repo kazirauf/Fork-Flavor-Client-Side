@@ -1,55 +1,48 @@
 # Fork & Flavor
 
-[Live URL](URL)
+[Live URL](https://fandf-client.vercel.app/)
 
 ## Introduction
 
-Fork & Flavor is a full-stack recipe-sharing community that connects cooking enthusiasts. Users can share, discover, and organize recipes, contribute ingredient checklists, and engage with others through commenting, rating, and following. The platform also offers premium features via a subscription model for exclusive content access.
+This Recipe Sharing Community is a full-stack web application designed for cooking enthusiasts to discover, share, and organize recipes. The platform targets home cooks, culinary students, and passionate food lovers, allowing users to share their favorite recipes, interact with ingredient checklists, and manage cooking time estimates. It promotes culinary knowledge-sharing and social interaction through comments, ratings, following users, and upvoting/downvoting recipes. Premium membership unlocks exclusive content, accessible through a subscription-based model, allowing users to access additional features and content.
+
 ## Features
 
-- **User Authentication & Authorization**:
+- **User Authentication & Authorization:**:
   - User Registration
-  - Login with JWT-Based Authentication
-  - Role-Based Access Control (Admin and User)
+  - Login & JWT-Based Authentication
+  - Role-based Access Control (Admin and User)
   - Secure Password Change
-
-- **User Profile Management**:
+- **User Profile Management:**:
   - Profile Customization
   - Social Connectivity
   - Premium Membership Subscription
-
 - **Recipe Management**:
+
   - My Recipes
   - Recipe Creation & Update
   - Recipe Deletion
 
 - **Rating, Commenting & Upvote/Downvote System**:
   - Rate Recipes
-  - Commenting on Recipes
+  - Commenting
   - Upvote/Downvote System
-
 - **Validation**:
-  - Input Validation using Zod
-
+  - Input validation using Zod
 - **Recipe Feed**:
   - Recipe Display
   - Advanced Search & Filter
   - Infinite Scroll
-
 - **User Management**:
-  - Admins can block/unblock users
-  - Publish/Unpublish Recipes
-  - Manage User Accounts
-  - CRUD Operations on Recipes and Admin Accounts
+  - Admins can block/unblock users, publish/unpublish recipe posts, manage user accounts, and perform CRUD operations on all recipes and admin accounts.
 
 ## Technology Stack
 
-- Next.js
+- Next JS
 - TypeScript
-- NextUI
-- TanStack Query
+- Next UI
+- Tanstack Query
 - Tailwind CSS
-- DaisyUI
 
 ## Installation Guideline
 
@@ -63,13 +56,13 @@ Fork & Flavor is a full-stack recipe-sharing community that connects cooking ent
 1. **Clone the repository**
 
    ```sh
-   https://github.com/kazirauf/Fork-Flavor-Client-Side
+   https://github.com/yasin-arafat-389/Fork & Flavor-Client
    ```
 
    2. **Navigate to the project directory**
 
    ```sh
-   cd Fork-Flavor-Client-Side
+   cd Fork & Flavor-Client
 
    ```
 

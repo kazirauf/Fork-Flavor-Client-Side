@@ -7,10 +7,10 @@ import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-
-import { useUserRegistration } from "@/src/hooks/auth.hooks";
 import { Image } from "@nextui-org/react";
 import Link from "next/link";
+
+import { useUserRegistration } from "@/src/hooks/auth.hooks";
 
 const MainContentsOfRegister = () => {
   // Initialize useForm hook
@@ -70,13 +70,12 @@ const MainContentsOfRegister = () => {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-2xl font-semibold text-[#e69f42] text-center">
-              Welcome To Join Us !!!
+                Welcome To Join Us !!!
               </h2>
-             
 
               {/* Form starts here */}
               <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mt-4">
+                <div className="mt-4">
                   <div className="flex justify-between">
                     <label className="block text-black text-sm font-bold mb-2">
                       Profile Image URL Link
@@ -85,8 +84,8 @@ const MainContentsOfRegister = () => {
                   <input
                     {...register("profilePicture")}
                     className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                    type="text"
                     placeholder="Profile Image URL"
+                    type="text"
                   />
                 </div>
                 <div className="mt-4">
@@ -97,8 +96,8 @@ const MainContentsOfRegister = () => {
                     {...register("name", { required: "Name is required" })}
                     required
                     className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                    type="text"
                     placeholder="Name"
+                    type="text"
                   />
                 </div>
 
@@ -116,8 +115,8 @@ const MainContentsOfRegister = () => {
                     })}
                     required
                     className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                    type="email"
                     placeholder="Email Address"
+                    type="email"
                   />
                 </div>
 
@@ -133,12 +132,10 @@ const MainContentsOfRegister = () => {
                     })}
                     required
                     className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                    type="password"
                     placeholder="Password"
+                    type="password"
                   />
                 </div>
-
-                
 
                 <div className="mt-8">
                   <Button
@@ -153,16 +150,14 @@ const MainContentsOfRegister = () => {
               </form>
               <div className="mt-4">
                 <p className="text-xl text-gray-600">
-                  Already have an account, go to Login Page {" "}
+                  Already have an account, go to Login Page{" "}
                   <Link
                     className="hover:underline text-[#e69f42]"
                     href="/login"
                   >
-                   Login Page
+                    Login Page
                   </Link>
                 </p>
-
-             
               </div>
             </motion.div>
           </div>
