@@ -98,36 +98,43 @@ const CreateRecipe = () => {
 
   return (
     <div className="w-[80%] mx-auto my-10">
-      <h1 className="text-center text-2xl md:text-4xl font-bold text-gray-900">
-        Create your <span className="text-secondary">recipe</span> post
-      </h1>
+       <h1 className="text-center text-6xl font-bold mt-10">All <span className="text-[#e69f42]">Recipes</span></h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col gap-5 w-[80%] md:w-[40%] mx-auto my-5">
-          {/* Title Input */}
-          <div className="flex flex-col">
-            <Input label="Recipe Title" type="text" {...register("title")} />
-            {errors.title && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.title.message}
-              </p>
-            )}
-          </div>
+      <div className="flex flex-col gap-5 w-[80%] md:w-[40%] mx-auto my-5">
+  {/* Title Input */}
+  <div className="flex flex-col">
+    <h3 className="text-black">Recipe Name</h3>
+    <input
+      type="text"
+      {...register("title")}
+      className="input input-bordered bg-white text-black" // White background and black text
+      placeholder="Recipe Name"
+    />
+    {errors.title && (
+      <p className="text-red-500 text-sm mt-1">
+        {errors.title.message}
+      </p>
+    )}
+  </div>
 
-          {/* Image Input */}
-          <div className="flex flex-col">
-            <Input
-              label="Recipe Thumbnail Image URL"
-              type="text"
-              {...register("image")}
-            />
-            {errors.image && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.image.message}
-              </p>
-            )}
-          </div>
-        </div>
+  {/* Image Input */}
+  <div className="flex flex-col">
+    <h3 className="text-black">Recipe Image URL</h3>
+    <input
+      type="text"
+      {...register("image")}
+      className="input input-bordered bg-white text-black" // White background and black text
+      placeholder="Recipe Image URL"
+    />
+    {errors.image && (
+      <p className="text-red-500 text-sm mt-1">
+        {errors.image.message}
+      </p>
+    )}
+  </div>
+</div>
+
 
         {/* Rich Text Editor */}
         <div className="flex flex-col">
@@ -161,18 +168,17 @@ const CreateRecipe = () => {
             </div>
           ) : (
             <div className="mb-5 text-2xl text-gray-900 ">
-              Get a <span className="text-secondary">premium membership</span>{" "}
-              to post this as premium content.
+           To share this as premium content, consider getting a <span className="text-[#e69f42]">premium membership</span>.
             </div>
           )}
 
           <Button
-            className="bg-button font-bold text-lg"
+            className="bg-button text-lg font-bold rounded-none hover:bg-white hover:text-orange-400 hover:border-2 hover:border-orange-400"
             isDisabled={isPending}
             isLoading={isPending}
             type="submit"
           >
-            Post Recipe
+            Post The Recipe
           </Button>
         </div>
       </form>
