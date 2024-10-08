@@ -4,11 +4,11 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 const FAQ = () => {
   return (
     <div>
-      <section className="lg:mx-52">
-        <h1 className="text-center text-4xl font-bold">
+      <section className="lg:mx-28">
+        <h1 className="text-center  text-black text-4xl font-bold">
           F <span className="text-[#e69f42]">A</span> Q
         </h1>
-        <div className="flex justify-center items-center my-20 mx-52">
+        <div className="flex justify-center items-center my-20 mx-28">
           <Accordion variant="splitted">
             <AccordionItem
               key="1"

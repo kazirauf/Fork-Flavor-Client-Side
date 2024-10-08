@@ -44,7 +44,7 @@ const ChangePassword = () => {
 
   return (
     <div className="py-12">
-      <h1 className="text-center text-4xl font-bold">
+      <h1 className="text-center  text-black text-4xl font-bold">
         Chnage Your <span className="text-[#e69f42]">Password</span> Here{" "}
       </h1>
       <div className="bg-[#F5EDED]  mt-10 flex items-center justify-center ">

@@ -4,13 +4,13 @@ import { Image } from "@nextui-org/react";
 const OurWebsiteFacilities = () => {
   return (
     <div className="mt-20">
-      <h1 className="text-center text-4xl font-bold">
+      <h1 className="text-center  text-black text-4xl font-bold">
         Our <span className="text-[#e69f42]">Featured</span>{" "}
       </h1>
       <div className="flex items-center justify-center gap-12">
         <section className="flex justify-center mt-10">
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-            <div className="card bg-base-100 w-96 shadow-xl border-x-2 border-y-4 border-[#e69f42]">
+            <div className="card  w-96 shadow-xl border-x-2 border-y-4 border-[#e69f42]">
               <figure>
                 <Image
                   alt="Shoes"

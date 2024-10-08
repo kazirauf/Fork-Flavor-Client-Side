@@ -4,12 +4,12 @@ import { Image } from "@nextui-org/react";
 
 const HowItWorks = () => {
   return (
-    <div>
+    <div className="bg-white">
       <div className="mt-20">
-        <h1 className="text-center text-4xl font-bold">
+        <h1 className="text-center  text-black text-4xl font-bold">
           How <span className="text-[#e69f42]">It</span> Works
         </h1>
-        <div className="hero bg-base-200  mt-10">
+        <div className=" mt-10">
           <div className="hero-content flex-col lg:flex-row ">
             <Image
               className="lg:max-w-xl max-w-sm  rounded-lg shadow-2xl"

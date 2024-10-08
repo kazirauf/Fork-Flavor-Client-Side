@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="en" >
       <head>
         <link
           href="https://raw.githubusercontent.com/kazirauf/Fork-Flavor-Client-Side/refs/heads/main/src/public/logo-nav.png"
