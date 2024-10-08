@@ -43,7 +43,10 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="bg-[#F5EDED] min-h-screen flex items-center justify-center py-12">
+   <div className="py-12">
+     <h1 className="text-center text-4xl font-bold">Chnage Your <span className="text-[#e69f42]">Password</span> Here </h1>
+    <div className="bg-[#F5EDED]  mt-10 flex items-center justify-center ">
+      
       <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
         <h2 className="text-2xl font-bold text-gray-700 text-center mb-6">
           Change Password
@@ -63,6 +66,7 @@ const ChangePassword = () => {
               id="email"
               type="email"
               value={user?.email}
+              placeholder="Your Email Address"
             />
           </div>
 
@@ -80,6 +84,7 @@ const ChangePassword = () => {
               className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200 font-bold text-lg`}
               id="password"
               type="password"
+              placeholder=" Current Password"
             />
           </div>
 
@@ -97,6 +102,7 @@ const ChangePassword = () => {
               className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200 font-bold text-lg`}
               id="newPassword"
               type="password"
+              placeholder="New Password"
             />
           </div>
 
@@ -114,6 +120,7 @@ const ChangePassword = () => {
         </form>
       </div>
     </div>
+   </div>
   );
 };
 
