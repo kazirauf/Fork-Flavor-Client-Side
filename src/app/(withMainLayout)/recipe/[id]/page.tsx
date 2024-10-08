@@ -8,6 +8,7 @@ import { BiUpvote, BiDownvote } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
 import {
   Avatar,
+  Image,
   Modal,
   ModalContent,
   Select,
@@ -169,59 +170,40 @@ const RecipeDetails = () => {
   }
 
   return (
-    <div className="bg-[#F5EDED]">
+    <div className="">
+        <h1 className="text-center text-6xl font-bold mt-10">Details Of <span className="text-[#e69f42]">{recipe?.title}</span></h1>
       <div className="w-[90%] mx-auto py-10 md:w-[80%]">
         {" "}
         {/* Responsive width */}
         <div className="bg-white shadow-lg rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
           {/* Recipe Image */}
-          <div className="relative">
+          <div className="relative bg-white" >
             <img
               alt={recipe?.title}
               className="w-full h-[300px] md:h-[500px] object-cover" // Responsive height
               src={recipe?.image}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-transparent to-transparent p-4">
-              <h1 className="text-white text-2xl md:text-4xl font-bold">
-                {recipe?.title}
-              </h1>{" "}
-              {/* Responsive text size */}
-            </div>
-          </div>
-
-          {/* Recipe Content */}
-          <div className="p-4 md:p-8">
-            {" "}
-            {/* Responsive padding */}
-            {/* Recipe Title and Details */}
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                {recipe?.title}
-              </h2>
-              <div className="text-secondary text-lg md:text-xl font-bold">
-                Average Rating: {averageRating?.toFixed(1)}
-              </div>
-            </div>
             <div className="border-2 border-button mt-3 p-3 rounded-lg inline-flex justify-center items-center gap-2 md:gap-5 text-gray-900">
               <Avatar src={postOwner?.profilePicture} />
 
               <div>
-                <h1 className="text-lg md:text-xl">
+                <h1 className="text-lg md:text-xl text-white">
                   Posted by{" "}
-                  <span className="text-secondary">{postOwner?.name}</span>
+                  <span className="text-blue-700">{postOwner?.name}</span>
                 </h1>
 
-                <h1 className="text-md md:text-lg">{postOwner?.email}</h1>
+                <h1 className="text-md md:text-lg text-white font-bold">{postOwner?.email}</h1>
               </div>
 
               {user?.email === postOwner?.email ? (
                 ""
               ) : (
                 <Button
-                  className={`text-sm md:text-lg bg-button font-bold ${user?.role === "admin" && "hidden"}`}
+                  className={`text-sm md:text-lg bg-blue-500 font-bold ${user?.role === "admin" && "hidden"}`}
                   isDisabled={isFollowUserPending || isUnfollowUserPending}
                   isLoading={isFollowUserPending || isUnfollowUserPending}
-                  startContent={<FaCirclePlus />}
+                  endContent={<FaCirclePlus />}
                   onClick={
                     postOwner?.followers?.includes(user?._id)
                       ? handleUnfollow
@@ -230,81 +212,108 @@ const RecipeDetails = () => {
                 >
                   {postOwner?.followers?.includes(user?._id)
                     ? " Unfollow"
-                    : "Follow"}
+                    : "Follow Now"}
                 </Button>
               )}
             </div>
+              {/* Responsive text size */}
+            </div>
+          </div>
+
+          {/* Recipe Content */}
+      <div className="lg:flex justify-between mx-28">
+      <div className="p-4 md:p-8">
+            {" "}
+            {/* Responsive padding */}
+            {/* Recipe Title and Details */}
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                {recipe?.title}
+              </h2>
+              <div className="text-[#e69f42] text-lg md:text-xl font-bold">
+                Rating {averageRating?.toFixed(1)} ⭐
+              </div>
+            </div>
+           
             {/* Recipe Description */}
             <div
               dangerouslySetInnerHTML={{ __html: recipe?.content }}
               className="mt-4 text-gray-700 text-md md:text-lg leading-relaxed"
             />
+          
           </div>
 
+     
+
+      
+
+          <div className={`mt-10 pb-5 ${user?.role === "admin" && "hidden"}`}>
           <div
             className={`pb-5 flex flex-col md:flex-row justify-center items-center gap-3 md:gap-5 ${user?.role === "admin" && "hidden"}`}
           >
             <Button
-              className="text-lg md:text-xl"
-              color="success"
+              className="text-lg md:text-xl rounded-full border-none h-50"
+              color="warning"
               isDisabled={isUpvotePending || isDownvotePending}
               isLoading={isUpvotePending}
-              startContent={<BiUpvote />}
               variant="bordered"
               onClick={() => handleUpvote(recipe?._id)}
             >
-              Upvote ({recipe?.upvote?.length})
+             <Image className="w-12" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJjVFFA5i4QJKHyITzyQUMaXur-yihIzjZyg&s" alt="" />({recipe?.upvote?.length})
             </Button>
 
             <Button
-              className="text-lg md:text-xl"
+              className="text-lg md:text-xl rounded-full border-none h-50"
               color="danger"
               isDisabled={isUpvotePending || isDownvotePending}
               isLoading={isDownvotePending}
-              startContent={<BiDownvote />}
+           
               variant="bordered"
               onClick={() => handleDownvote(recipe?._id)}
             >
-              Downvote ({recipe?.downvote?.length})
+             <Image className="w-12" src="https://cdn-icons-png.flaticon.com/512/3670/3670156.png" alt="" /> ({recipe?.downvote?.length})
             </Button>
-          </div>
 
-          {user?.email !== postOwner?.email && (
+          </div>
+              {user?.email !== postOwner?.email && (
             <div
               className={`pb-5 flex justify-center items-center gap-3 md:gap-5 ${user?.role === "admin" && "hidden"}`}
             >
-              <Button className="bg-button text-lg font-bold" onPress={onOpen}>
-                Rate this Recipe
+              <Button className="bg-white border-2 py-5 ml-3 border-[#e69f42] text-lg font-bold" onPress={onOpen}>
+              <h3 className="font-bold text-black">Rating Now</h3>
+               <Image className="w-14 p-3" src="https://cdn-icons-png.flaticon.com/512/1168/1168845.png" alt="rate icon" />
               </Button>
 
               <Modal
-                className="p-3 bg-primary"
+                className="p-3 bg-blue-500"
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
               >
                 <ModalContent>
                   <form
-                    className="flex flex-col gap-5"
+                    className="flex flex-col gap-5 text-white"
                     onSubmit={handleSubmit(onSubmit)}
                   >
                     {/* Select for rating */}
-                    <Select
-                      className="max-w-xs"
-                      label="How much would you rate this recipe?"
-                      {...register("rating", { required: true })}
-                    >
-                      <SelectItem key={"1"}>1</SelectItem>
-                      <SelectItem key={"2"}>2</SelectItem>
-                      <SelectItem key={"3"}>3</SelectItem>
-                      <SelectItem key={"4"}>4</SelectItem>
-                      <SelectItem key={"5"}>5</SelectItem>
-                    </Select>
+                    <select 
+  className="select select-bordered max-w-xs bg-[#e69f42]" 
+  {...register("rating", { required: true })} // Handle form registration and validation
+>
+  <option disabled selected>Rate This Recipe </option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select>
+
 
                     {/* Submit button */}
                     <Button
                       isDisabled={isRateRecipePending}
                       isLoading={isRateRecipePending}
                       type="submit"
+                      className="bg-white text-[#e69f42] border-[#e69f42] hover:text-white hover:bg-[#e69f42] rounded-none"
                     >
                       Submit
                     </Button>
@@ -312,18 +321,16 @@ const RecipeDetails = () => {
                 </ModalContent>
               </Modal>
             </div>
-          )}
-
-          <div className={`mt-10 pb-5 ${user?.role === "admin" && "hidden"}`}>
+          )} 
             {recipe?.comments?.length === 0 ? (
-              <div className="text-2xl text-center font-bold text-red-600">
-                There Are no comments for this post yet.
+              <div className="text-2xl text-center font-bold text-blue-500">
+                Comments in this post.
               </div>
             ) : (
               recipe?.comments?.map((comment: any, index: number) => (
                 <div
                   key={index}
-                  className="flex flex-col md:flex-row justify-between items-center text-gray-900 p-3 rounded-lg border-2 border-button w-full md:w-[70%] mx-auto mb-5"
+                  className="flex flex-col md:flex-row justify-between items-center text-gray-900 p-3 rounded-lg border-2 border-blue-500 w-full md:w-[70%] lg:w-[400px] mx-auto mb-5"
                 >
                   <div className="flex gap-3">
                     <Avatar
@@ -356,7 +363,7 @@ const RecipeDetails = () => {
                           )
                         }
                       >
-                        <FaEdit className="text-xl" />
+                      Edit
                       </Button>
                     </div>
                   )}
@@ -369,27 +376,28 @@ const RecipeDetails = () => {
                 className="flex flex-col gap-5"
                 onSubmit={handleCommentSubmit(onCommentSubmit)}
               >
-                <Controller
-                  control={control}
-                  defaultValue=""
-                  name="comment"
-                  render={({ field }) => (
-                    <Textarea
-                      {...field}
-                      required
-                      label="Comment"
-                      placeholder="Leave a comment for this recipe"
-                    />
-                  )}
-                />
+             <Controller
+  control={control}
+  defaultValue=""
+  name="comment"
+  render={({ field }) => (
+    <textarea
+      {...field}
+      required
+      placeholder="Comment now!!! for this recipe" // Placeholder text
+      className="textarea textarea-bordered w-full bg-white text-black border-2 border-orange-400" // White background and black text
+    />
+  )}
+/>
+
 
                 <Button
-                  className="bg-button text-lg font-bold"
+                  className="bg-button text-lg font-bold rounded-none hover:bg-white hover:text-orange-400 hover:border-2 hover:border-orange-400"
                   isDisabled={isCommentRecipePending}
                   isLoading={isCommentRecipePending}
                   type="submit"
                 >
-                  Comment
+                  Comment Done
                 </Button>
               </form>
 
@@ -402,6 +410,7 @@ const RecipeDetails = () => {
                     className="p-5 flex flex-col gap-5 bg-primary"
                     onSubmit={handleUpdateComment}
                   >
+                    
                     <Textarea
                       required
                       label="Edit Comment"
@@ -422,6 +431,7 @@ const RecipeDetails = () => {
               </Modal>
             </div>
           </div>
+      </div>
         </div>
       </div>
     </div>
