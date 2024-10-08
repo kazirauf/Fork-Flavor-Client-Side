@@ -96,10 +96,8 @@ const ManageUsers = () => {
   }
 
   return (
-    <div className="container mx-auto p-8 pb-20">
-      <h1 className="text-3xl font-bold mb-6 text-gray-900 text-center">
-        Manage <span className="text-secondary">Users</span>
-      </h1>
+    <div className="container mx-auto p-8 pb-20 h-[700px]">
+         <h1 className="text-center text-4xl font-bold my-10">Manage All <span className="text-[#e69f42]">Users</span></h1>
 
       {/* Responsive Table Wrapper */}
       <div className="hidden md:block">
@@ -143,7 +141,7 @@ const ManageUsers = () => {
                 </td>
                 <td className="p-4">
                   <Button
-                    className="bg-primary ml-4 font-bold text-lg"
+                    className="bg-[#e69f42] ml-4 font-bold text-lg rounded-none hover:bg-white hover:text-[#e69f42] hover:text-[#e69f42] hover:border-[#e69f42] hover:border-2"
                     isDisabled={loadingBlockStatus === user?._id}
                     isLoading={loadingBlockStatus === user?._id}
                     onClick={() => handleAction(user?._id, user?.isBlocked)}
@@ -152,7 +150,7 @@ const ManageUsers = () => {
                   </Button>
 
                   <Button
-                    className="bg-red-500 ml-4 font-bold text-lg"
+                    className="bg-red-500 ml-4 font-bold text-lg rounded-none hover:bg-white hover:border-2 hover:border-red-500 hover:text-red-500"
                     isDisabled={userToDelete === user?._id}
                     isLoading={userToDelete === user?._id}
                     onClick={() => handleDeleteRecipe(user?._id)}
@@ -198,7 +196,7 @@ const ManageUsers = () => {
             </div>
             <div className="flex justify-between">
               <Button
-                className="bg-primary font-bold text-lg"
+                className="bg-[#e69f42] ml-4 font-bold text-lg rounded-none hover:bg-white hover:text-[#e69f42] hover:text-[#e69f42] hover:border-[#e69f42] hover:border-2"
                 isDisabled={loadingBlockStatus === user?._id}
                 isLoading={loadingBlockStatus === user?._id}
                 onClick={() => handleAction(user?._id, user?.isBlocked)}
@@ -206,7 +204,7 @@ const ManageUsers = () => {
                 {user?.isBlocked ? "Unblock" : "Block"}
               </Button>
               <Button
-                className="bg-red-500 font-bold text-lg"
+                className="bg-red-500 ml-4 font-bold text-lg rounded-none hover:bg-white hover:border-2 hover:border-red-500 hover:text-red-500"
                 isDisabled={userToDelete === user?._id}
                 isLoading={userToDelete === user?._id}
                 onClick={() => handleDeleteRecipe(user?._id)}
