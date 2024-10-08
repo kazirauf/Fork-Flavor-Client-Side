@@ -93,9 +93,7 @@ const ManageRecipies = () => {
 
   return (
     <div className="container mx-auto p-8 pb-20">
-      <h1 className="text-3xl font-bold mb-6 text-gray-900 text-center">
-        Manage <span className="text-secondary">Recipes</span>
-      </h1>
+       <h1 className="text-center text-4xl font-bold my-10">Manage All <span className="text-[#e69f42]">Repice</span></h1>
 
       {/* Responsive Table Wrapper */}
       <div className="hidden md:block">
@@ -139,7 +137,7 @@ const ManageRecipies = () => {
                 </td>
                 <td className="p-4">
                   <Button
-                    className="bg-primary ml-4 font-bold text-lg"
+                    className="bg-[#e69f42] ml-4 font-bold text-lg rounded-none hover:bg-white hover:text-[#e69f42] hover:text-[#e69f42] hover:border-[#e69f42] hover:border-2"
                     isDisabled={loadingRecipeId === recipe?._id}
                     isLoading={loadingRecipeId === recipe?._id}
                     onClick={() =>
@@ -150,7 +148,7 @@ const ManageRecipies = () => {
                   </Button>
 
                   <Button
-                    className="bg-red-500 ml-4 font-bold text-lg"
+                    className="bg-red-500 ml-4 font-bold text-lg rounded-none hover:bg-white hover:border-2 hover:border-red-500 hover:text-red-500"
                     isDisabled={recipeToDelete === recipe?._id}
                     isLoading={recipeToDelete === recipe?._id}
                     onClick={() => handleDeleteRecipe(recipe?._id)}
