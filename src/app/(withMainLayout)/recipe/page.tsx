@@ -2,7 +2,7 @@
 "use client";
 
 import { Input } from "@nextui-org/input";
-import { Select, SelectItem } from "@nextui-org/select";
+
 import { useState, useEffect } from "react";
 
 import RecipeCard from "@/src/components/UI/RecipeCard/RecipeCard";
@@ -68,41 +68,48 @@ const RecipePage = () => {
   return (
     <div>
       <div
-        className="h-[200px] bg-cover bg-center grayscale"
-        style={{
-          backgroundImage: `url("https://www.shutterstock.com/image-photo/raw-ingredients-readymade-pizza-on-260nw-1926054275.jpg")`,
-        }}
+        className="h-[200px] "
+        
       >
-        <div className="h-full w-full flex items-center justify-center bg-black bg-opacity-50">
-          <h1 className="text-white text-5xl">Recipes</h1>
+        <div className="h-full w-full flex items-center justify-center ">
+        <h1 className="text-center text-6xl font-bold mt-10">All <span className="text-[#e69f42]">Recipes</span></h1>
+
         </div>
       </div>
 
       <div className="bg-[#F5EDED]">
-        <div className="py-20">
+        <div className="py-10">
           <div className="max-w-screen-xl mx-auto mb-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
             {/* Select for sorting */}
-            <Select
-              label="Sort By"
-              onChange={(event) => setSortCriterion(event.target.value)}
-            >
-              <SelectItem key={"upvote"}>Upvote</SelectItem>
-              <SelectItem key={"rating"}>Rating</SelectItem>
-            </Select>
+            <select 
+  className="select select-bordered w-full  bg-[#e69f42] text-black" // Custom background and text color
+  onChange={(event) => setSortCriterion(event.target.value)} // Handle change event
+>
+  <option disabled selected>Shot with Vote And Ratings</option>
+  <option value="hanSolo">Vote</option>
+  <option value="greedo">Ratings</option>
+</select>
 
-            {/* Search input */}
-            <Input
-              label="Search Recipe"
-              type="text"
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                handleSearch();
-              }}
-            />
+{/* Search input */}
+<label className="input input-bordered flex items-center gap-2 bg-[#e69f42] text-black ">
+  <input 
+    type="text" 
+    className="grow bg-[#e69f42] text-white" // Custom background and text color
+    placeholder="Search" 
+    value={searchQuery} // Controlled input value
+    onChange={(e) => {
+      setSearchQuery(e.target.value); // Handle input change
+      handleSearch(); // Trigger search function
+    }} 
+  />
+  <kbd className="kbd kbd-sm">⌘</kbd>
+  <kbd className="kbd kbd-sm">K</kbd>
+</label>
+
+
           </div>
 
-          <div className="w-[90%] mx-auto mt-10">
+          <div className="w-[60%] mx-auto mt-10">
             {sortedRecipes?.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {sortedRecipes?.map((recipe: any, index: number) => (

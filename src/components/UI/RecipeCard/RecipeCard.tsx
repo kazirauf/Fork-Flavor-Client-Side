@@ -91,14 +91,14 @@ const RecipeCard = ({
           </h3>
 
           {/* Average Rating */}
-          <div className="mt-4 text-secondary text-lg font-bold">
-            Average Rating: {averageRating?.toFixed(1)}
+          <div className="mt-4 text-[#e69f42] text-lg font-bold">
+            Rating {averageRating?.toFixed(1)} ⭐
           </div>
 
           <div className="text-center mt-4">
             {button === "delete" && (
               <Button
-                className="bg-red-500 text-lg"
+                className="bg-red-500 text-lg w-full"
                 isDisabled={recipeToDelete === recipe?._id}
                 isLoading={recipeToDelete === recipe?._id}
                 onClick={() => handleDeleteRecipe(recipe?._id)}
@@ -109,7 +109,7 @@ const RecipeCard = ({
 
             {button === "show details" && (
               <Link href={`/recipe/${recipe?._id}`}>
-                <Button className="bg-button text-lg">Show Details</Button>
+                <Button className="bg-white text-[#e69f42] border-[#e69f42] hover:text-white hover:bg-[#e69f42] border-2 text-lg w-full">See Details</Button>
               </Link>
             )}
           </div>

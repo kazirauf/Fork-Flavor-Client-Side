@@ -4,7 +4,7 @@ import {Accordion, AccordionItem} from "@nextui-org/react";
 const FAQ = () => {
     return (
         <div>
-            <section>
+            <section className="lg:mx-52">
             <h1 className="text-center text-4xl font-bold">F <span className="text-[#e69f42]">A</span> Q</h1>
            <div className='flex justify-center items-center mx-auto my-20 mx-52'>
 

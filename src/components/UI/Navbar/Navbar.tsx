@@ -29,7 +29,7 @@ export default function NavigationBar() {
 
   const menuItems = [
     { name: "Home", href: "/" },
-    { name: "Recipe", href: "/recipe" },
+    { name: "All Recipes", href: "/recipe" },
     { name: "About US", href: "/about" },
     { name: "Contact US", href: "/contact" },
   ];
