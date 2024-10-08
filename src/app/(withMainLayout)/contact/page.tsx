@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import MainContentsOfContactUs from "./MainContents";
 
 export const metadata: Metadata = {
-  title: "CookNest || Contact us",
+  title: "Fork & Flavor || Contact us",
   description:
     "If you have any doubts, please contact us by submitting the following form.",
 };

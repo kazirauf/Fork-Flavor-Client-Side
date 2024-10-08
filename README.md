@@ -1,4 +1,4 @@
-# CookNest
+# Fork & Flavor
 
 ## Introduction
 
@@ -54,13 +54,13 @@ This Recipe Sharing Community is a full-stack web application designed for cooki
 1. **Clone the repository**
 
    ```sh
-   https://github.com/yasin-arafat-389/CookNest-Client
+   https://github.com/yasin-arafat-389/Fork & Flavor-Client
    ```
 
    2. **Navigate to the project directory**
 
    ```sh
-   cd CookNest-Client
+   cd Fork & Flavor-Client
 
    ```
 

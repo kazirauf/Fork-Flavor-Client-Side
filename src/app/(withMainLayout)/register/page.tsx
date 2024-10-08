@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import MainContentsOfRegister from "./MainContents";
 
 export const metadata: Metadata = {
-  title: "CookNest || Sign Up",
+  title: "Fork & Flavor || Sign Up",
   description: "Sign Up to be a member!",
 };
 

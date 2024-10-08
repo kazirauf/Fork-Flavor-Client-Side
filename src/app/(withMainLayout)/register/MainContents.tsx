@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 import { useUserRegistration } from "@/src/hooks/auth.hooks";
+import { Image } from "@nextui-org/react";
+import Link from "next/link";
 
 const MainContentsOfRegister = () => {
   // Initialize useForm hook
@@ -45,7 +47,7 @@ const MainContentsOfRegister = () => {
     <div>
       <div className="bg-[#F5EDED]">
         <div className="py-16">
-          <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+          <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-5xl">
             {/* Left Image */}
             <motion.div
               animate={{ opacity: 1, x: 0 }}
@@ -53,10 +55,10 @@ const MainContentsOfRegister = () => {
               initial={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
             >
-              <img
+              <Image
                 alt="Sign Up"
                 className="h-full"
-                src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7965.jpg?t=st=1724555771~exp=1724559371~hmac=e2c481bd11c2f4215096d6ce2bd2a58f728b890c0d25496ed777b102b9082412&w=740"
+                src="https://images.unsplash.com/photo-1504387828636-abeb50778c0c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </motion.div>
 
@@ -67,29 +69,41 @@ const MainContentsOfRegister = () => {
               initial={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-2xl font-semibold text-gray-700 text-center">
-                CookNest
+              <h2 className="text-2xl font-semibold text-[#e69f42] text-center">
+              Welcome To Join Us !!!
               </h2>
-              <p className="text-xl text-gray-600 text-center">
-                Sign Up to be a member!
-              </p>
+             
 
               {/* Form starts here */}
               <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="mt-4">
+                  <div className="flex justify-between">
+                    <label className="block text-black text-sm font-bold mb-2">
+                      Profile Image URL Link
+                    </label>
+                  </div>
+                  <input
+                    {...register("profilePicture")}
+                    className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                    type="text"
+                    placeholder="Profile Image URL"
+                  />
+                </div>
                 <div className="mt-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                  <label className="block text-black text-sm font-bold mb-2">
                     Name
                   </label>
                   <input
                     {...register("name", { required: "Name is required" })}
                     required
-                    className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                    className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                     type="text"
+                    placeholder="Name"
                   />
                 </div>
 
                 <div className="mt-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                  <label className="block text-black text-sm font-bold mb-2">
                     Email Address
                   </label>
                   <input
@@ -101,14 +115,15 @@ const MainContentsOfRegister = () => {
                       },
                     })}
                     required
-                    className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                    className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                     type="email"
+                    placeholder="Email Address"
                   />
                 </div>
 
                 <div className="mt-4">
                   <div className="flex justify-between">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                    <label className="block text-black text-sm font-bold mb-2">
                       Password
                     </label>
                   </div>
@@ -117,27 +132,17 @@ const MainContentsOfRegister = () => {
                       required: "Password is required",
                     })}
                     required
-                    className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                    className="bg-gray-200 text-black focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                     type="password"
+                    placeholder="Password"
                   />
                 </div>
 
-                <div className="mt-4">
-                  <div className="flex justify-between">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Profile Picture URL (Optional)
-                    </label>
-                  </div>
-                  <input
-                    {...register("profilePicture")}
-                    className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                    type="text"
-                  />
-                </div>
+                
 
                 <div className="mt-8">
                   <Button
-                    className="bg-button hover:bg-button-dark text-white font-bold py-2 px-4 w-full rounded text-lg"
+                    className="bg-[#e69f42] hover:bg-button-dark hover:text-[#e69f42] hover:bg-white hover:border-2 hover:border-[#e69f42] text-white text-white font-bold py-2 px-4 w-full rounded text-lg"
                     isDisabled={isPending}
                     isLoading={isPending}
                     type="submit"
@@ -146,6 +151,19 @@ const MainContentsOfRegister = () => {
                   </Button>
                 </div>
               </form>
+              <div className="mt-4">
+                <p className="text-xl text-gray-600">
+                  Already have an account, go to Login Page {" "}
+                  <Link
+                    className="hover:underline text-[#e69f42]"
+                    href="/login"
+                  >
+                   Login Page
+                  </Link>
+                </p>
+
+             
+              </div>
             </motion.div>
           </div>
         </div>

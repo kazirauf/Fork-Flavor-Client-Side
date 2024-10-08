@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import { Metadata, Viewport } from "next";
-
 import { Providers } from "../lib/providers";
 
 export const metadata: Metadata = {
@@ -24,7 +23,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head>
         <link
-          href="https://i.ibb.co.com/LttSfkb/favicon-For-Cook-Nest.png"
+          href="https://raw.githubusercontent.com/kazirauf/Fork-Flavor-Client-Side/refs/heads/main/src/public/logo-nav.png"
           rel="icon"
         />
       </head>

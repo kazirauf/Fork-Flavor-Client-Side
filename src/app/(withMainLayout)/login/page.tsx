@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import MainContentsOfLogin from "./MainContents";
 
 export const metadata: Metadata = {
-  title: "CookNest || Login",
+  title: "Fork & Flavor || Login",
   description: "Login to manage recipes!",
 };
 
