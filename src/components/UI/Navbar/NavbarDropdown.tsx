@@ -72,18 +72,18 @@ export default function NavbarDropdown() {
     <Dropdown>
       <DropdownTrigger>
         <Avatar
-          className="cursor-pointer bg-gray-300"
+          className="cursor-pointer bg-white"
           src={user?.profilePicture}
         />
       </DropdownTrigger>
 
-      <DropdownMenu aria-label="Static Actions">
+      <DropdownMenu aria-label="Static Actions" className="bg-white">
         {dropdownItems
           .filter((item) => item.condition)
           .map((item, index) => (
             <DropdownItem
               key={index}
-              className={`${item.isDanger ? "text-danger" : ""}`}
+              className={`${item.isDanger ? "text-warning" : ""}`}
               color={item.isDanger ? "danger" : "default"}
               onClick={item.action}
             >
