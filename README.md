@@ -2,6 +2,9 @@
 
 [Live URL](https://fandf-client.vercel.app/)
 
+# Fork & Flavor Sever Side Github Repo
+[Live URL](https://github.com/kazirauf/Fork-Flavor-Server-Side)
+
 ## Introduction
 
 This Recipe Sharing Community is a full-stack web application designed for cooking enthusiasts to discover, share, and organize recipes. The platform targets home cooks, culinary students, and passionate food lovers, allowing users to share their favorite recipes, interact with ingredient checklists, and manage cooking time estimates. It promotes culinary knowledge-sharing and social interaction through comments, ratings, following users, and upvoting/downvoting recipes. Premium membership unlocks exclusive content, accessible through a subscription-based model, allowing users to access additional features and content.
